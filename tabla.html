@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de Tablas</title>
+</head>
+<body>
+
+    <h2>Tabla</h2>
+    <button onclick="crearTabla()">Crear Tabla</button>
+    <div id="tabla-container"></div>
+
+    <script>
+        function crearTabla() {
+            // Ask the user the number of rows and columns
+            let filas = parseInt(prompt("Ingresa el número de filas:"));
+            let columnas = parseInt(prompt("Ingresa el número de columnas:"));
+
+            // check the values are correct 
+            if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
+                alert("Por favor, ingresa números válidos para filas y columnas.");
+                return;
+            }
+
+            // make the board 
+            let tabla = "<table border='1'>";
+
+            for (let i = 0; i < filas; i++) {
+                tabla += "<tr>";
+                for (let j = 0; j < columnas; j++) {
+                    tabla += `<td>Fila ${i + 1}, Columna ${j + 1}</td>`;
+                }
+                tabla += "</tr>";
+            }
+
+            tabla += "</table>";
+
+            // Insert the board in a container
+            document.getElementById("tabla-container").innerHTML = tabla;
+        }
+    </script>
+
+</body>
+</html>
