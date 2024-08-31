@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        function generarRango() {
+    // Asks the user for two numbers that are the limits for the array 
+    let num1 = parseInt(prompt("Ingresa el primer número del rango:"));
+    let num2 = parseInt(prompt("Ingresa el segundo número del rango:"));
+
+    // Verify the numbers are true numbers 
+    if (isNaN(num1) || isNaN(num2)) {
+        alert("Por favor, ingresa números válidos.");
+        return [];
+    }
+
+    // Makes sure the variable inicio is less than fin 
+    let inicio = Math.min(num1, num2);
+    let fin = Math.max(num1, num2);
+    
+    let resultado = [];
+
+    // For makes the cycle and add one number since inicio util fin  
+    for (let i = inicio; i <= fin; i++) {
+        resultado.push(i);
+    }
+
+    return resultado;
+}
+
+// calls the function rango
+let rango = generarRango();
+console.log(rango); // Shows te array in the browser console 
+document.write("este es el array" + rango); //writes the array in the front of the html page 
+    </script>
+</body>
+</html>
